@@ -18,7 +18,7 @@ export default function VenueDetailPage() {
   const router = useRouter();
   const [bookingLoading, setBookingLoading] = useState(false);
   const [userRole, setUserRole] = useState<string | null>(null);
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<{ id: string } | null>(null);
 
   const fetchVenue = useCallback(async () => {
     try {
