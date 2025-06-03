@@ -10,7 +10,7 @@ export async function generateVenuePDF(venue: Venue) {
   const fontBytes = await fetch(fontUrl).then(res => res.arrayBuffer());
   const customFont = await pdfDoc.embedFont(fontBytes);
   const page = pdfDoc.addPage([595.28, 841.89]); // A4 size
-  const { width, height } = page.getSize();
+  const { height } = page.getSize();
 
   // Add title
   page.drawText('Информация о площадке', {

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { Venue } from '../types';
-import Link from 'next/link';
 import './venue-list.css';
 
 export default function VenueList() {
@@ -50,8 +49,8 @@ export default function VenueList() {
       }
       if (error) throw error;
       setVenues(data || []);
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error: unknown) {
+      setError(error instanceof Error ? error.message : 'Неизвестная ошибка');
     } finally {
       setLoading(false);
     }

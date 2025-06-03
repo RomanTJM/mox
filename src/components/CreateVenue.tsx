@@ -46,7 +46,7 @@ export default function CreateVenue() {
         );
       }
       router.push('/venues');
-    } catch (error: any) {
+    } catch (error: unknown) {
       setError(error instanceof Error ? error.message : 'Неизвестная ошибка');
     } finally {
       setLoading(false);
