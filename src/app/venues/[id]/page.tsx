@@ -118,7 +118,7 @@ export default function VenueDetailPage() {
       } else {
         alert('Ошибка создания платежа: ' + (data.error || 'Неизвестная ошибка'));
       }
-    } catch (error) {
+    } catch {
       alert('Ошибка бронирования');
     } finally {
       setBookingLoading(false);
