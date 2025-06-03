@@ -30,7 +30,7 @@ export default function VenueDetailPage() {
       if (error) throw error;
       setVenue(data);
     } catch (error: unknown) {
-      setError(error instanceof Error ? error.message : 'Unknown error');
+      setError(error instanceof Error ? error.message : 'Неизвестная ошибка');
     } finally {
       setLoading(false);
     }
