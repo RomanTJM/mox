@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
       cancel_url: `${req.nextUrl.origin}/venues/${venueId}?canceled=1`,
     });
     return NextResponse.json({ url: session.url });
-  } catch (error: any) {
+  } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
     return NextResponse.json({ error: message }, { status: 500 });
   }

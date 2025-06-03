@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { supabase } from '../../../lib/supabase';
 import { Venue } from '../../../types';
 import Link from 'next/link';
@@ -20,21 +20,13 @@ export default function VenueDetailPage() {
   const [userRole, setUserRole] = useState<string | null>(null);
   const [user, setUser] = useState<any>(null);
 
-  useEffect(() => {
-    fetchVenue();
-    checkAdminOrOwner();
-    fetchUserRole();
-    supabase.auth.getUser().then(({ data }) => setUser(data.user));
-  }, [id]);
-
-  const fetchVenue = async () => {
+  const fetchVenue = useCallback(async () => {
     try {
       const { data, error } = await supabase
         .from('venues')
         .select('*')
         .eq('id', id)
         .single();
-
       if (error) throw error;
       setVenue(data);
     } catch (error) {
@@ -42,9 +34,9 @@ export default function VenueDetailPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
 
-  const checkAdminOrOwner = async () => {
+  const checkAdminOrOwner = useCallback(async () => {
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return setIsAdminOrOwner(false);
     if (venue && venue.owner_user_id === user.id) return setIsAdminOrOwner(true);
@@ -54,7 +46,14 @@ export default function VenueDetailPage() {
       .eq('id', user.id)
       .single();
     setIsAdminOrOwner(data?.role === 'admin');
-  };
+  }, [venue]);
+
+  useEffect(() => {
+    fetchVenue();
+    checkAdminOrOwner();
+    fetchUserRole();
+    supabase.auth.getUser().then(({ data }) => setUser(data.user));
+  }, [id, fetchVenue, checkAdminOrOwner]);
 
   const fetchUserRole = async () => {
     const { data: { user } } = await supabase.auth.getUser();
@@ -115,7 +114,7 @@ export default function VenueDetailPage() {
       } else {
         alert('Ошибка создания платежа: ' + (data.error || 'Неизвестная ошибка'));
       }
-    } catch (e) {
+    } catch (error) {
       alert('Ошибка бронирования');
     } finally {
       setBookingLoading(false);
@@ -135,6 +134,7 @@ export default function VenueDetailPage() {
           </Link>
         </div>
         <div className="venue-detail-card card">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           {venue.image_url && (
             <div className="venue-detail-img-wrap">
               <img

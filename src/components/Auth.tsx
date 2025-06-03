@@ -70,9 +70,9 @@ export default function Auth() {
       toast.success('Вход выполнен!');
       setIsLoggedIn(true);
       router.push('/venues');
-    } catch (error: any) {
-      setError('Неизвестная ошибка. Попробуйте позже.');
-      toast.error('Неизвестная ошибка. Попробуйте позже.');
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'Неизвестная ошибка. Попробуйте позже.');
+      toast.error(error instanceof Error ? error.message : 'Неизвестная ошибка. Попробуйте позже.');
     } finally {
       setLoading(false);
     }
@@ -123,9 +123,9 @@ export default function Auth() {
       setPassword('');
       setRole('user');
       setShowModal(true);
-    } catch (error: any) {
-      setError('Неизвестная ошибка. Попробуйте позже.');
-      toast.error('Неизвестная ошибка. Попробуйте позже.');
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'Неизвестная ошибка. Попробуйте позже.');
+      toast.error(error instanceof Error ? error.message : 'Неизвестная ошибка. Попробуйте позже.');
     } finally {
       setLoading(false);
     }
