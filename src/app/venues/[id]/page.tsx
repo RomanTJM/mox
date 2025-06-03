@@ -29,7 +29,7 @@ export default function VenueDetailPage() {
         .single();
       if (error) throw error;
       setVenue(data);
-    } catch (error) {
+    } catch (error: unknown) {
       setError(error instanceof Error ? error.message : 'Unknown error');
     } finally {
       setLoading(false);
@@ -90,8 +90,8 @@ export default function VenueDetailPage() {
       link.click();
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('Error generating PDF:', error);
+    } catch {
+      // Ошибка генерации PDF
     }
   };
 
@@ -134,7 +134,6 @@ export default function VenueDetailPage() {
           </Link>
         </div>
         <div className="venue-detail-card card">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           {venue.image_url && (
             <div className="venue-detail-img-wrap">
               <img

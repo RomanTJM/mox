@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { useRouter } from 'next/navigation';
 import { sendEmail } from '../utils/email';
-import toast from 'react-hot-toast';
 import './create-venue-form.css';
 
 export default function CreateVenue() {
@@ -48,7 +47,7 @@ export default function CreateVenue() {
       }
       router.push('/venues');
     } catch (error: any) {
-      setError(error.message);
+      setError(error instanceof Error ? error.message : 'Неизвестная ошибка');
     } finally {
       setLoading(false);
     }
