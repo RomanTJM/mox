@@ -1,0 +1,12 @@
+.create-venue-page {
+  min-height: 100vh;
+  background: #f9fafb;
+  padding: 2rem 0;
+}
+.create-venue-main {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.create-venue-back {
+  margin-bottom: 1.5rem;
+} 

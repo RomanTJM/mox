@@ -1,0 +1,16 @@
+.venues-main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.venues-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.venues-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222;
+} 

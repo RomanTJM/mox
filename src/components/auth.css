@@ -1,0 +1,147 @@
+/* Контейнер формы */
+.auth-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.auth-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.auth-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.auth-input:focus {
+  border-color: #6366f1;
+}
+
+.auth-btn-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.auth-btn {
+  flex: 1;
+  padding: 0.5rem 0;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.auth-btn-primary {
+  background: #6366f1;
+  color: #fff;
+}
+.auth-btn-primary:hover {
+  background: #4f46e5;
+}
+.auth-btn-outline {
+  background: #fff;
+  color: #6366f1;
+  border: 1px solid #6366f1;
+}
+.auth-btn-outline:hover {
+  background: #f3f4f6;
+}
+
+.auth-error {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #fee2e2;
+  color: #b91c1c;
+  border-radius: 0.375rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.auth-page {
+  min-height: 100vh;
+  background: #f9fafb;
+  padding: 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.auth-page-container {
+  max-width: 480px;
+  margin: 0 auto;
+}
+.auth-page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.auth-page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+.auth-page-desc {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* Модальное окно для уведомления */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+.modal-message {
+  font-size: 1.15rem;
+  color: #222;
+  margin-top: 0.5rem;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modal-close:hover {
+  color: #222;
+} 
