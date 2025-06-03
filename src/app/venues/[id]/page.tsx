@@ -68,11 +68,15 @@ export default function VenueDetailPage() {
 
   const handleDeleteVenue = async () => {
     if (!confirm('Вы уверены, что хотите удалить площадку?')) return;
-    const { error } = await supabase.from('venues').delete().eq('id', id);
-    if (error) {
-      setError(error.message);
-    } else {
-      router.push('/venues');
+    try {
+      const { error } = await supabase.from('venues').delete().eq('id', id);
+      if (error) {
+        setError(error.message);
+      } else {
+        router.push('/venues');
+      }
+    } catch (error: unknown) {
+      setError(error instanceof Error ? error.message : 'Неизвестная ошибка');
     }
   };
 
