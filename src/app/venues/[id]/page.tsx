@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { generateVenuePDF } from '../../../utils/pdf';
 import { useParams, useRouter } from 'next/navigation';
 import './venue-detail.css';
-import type { User as SupabaseUser } from '@supabase/supabase-js';
 
 export default function VenueDetailPage() {
   const params = useParams();
@@ -19,7 +18,7 @@ export default function VenueDetailPage() {
   const router = useRouter();
   const [bookingLoading, setBookingLoading] = useState(false);
   const [userRole, setUserRole] = useState<string | null>(null);
-  const [user, setUser] = useState<SupabaseUser | null>(null);
+  const [user, setUser] = useState<any>(null);
 
   const fetchVenue = useCallback(async () => {
     try {
