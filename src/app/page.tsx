@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Home() {
   return (
     <div className="home-bg">
@@ -12,12 +14,12 @@ export default function Home() {
             </p>
             <div className="home-btns">
               <div>
-                <a
+                <Link
                   href="/venues"
                   className="btn btn-primary home-venues-btn"
                 >
                   Смотреть площадки
-                </a>
+                </Link>
               </div>
             </div>
           </div>

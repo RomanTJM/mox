@@ -6,7 +6,6 @@ import { Venue } from '../../../types';
 import Link from 'next/link';
 import { generateVenuePDF } from '../../../utils/pdf';
 import { useParams, useRouter } from 'next/navigation';
-import { loadStripe } from '@stripe/stripe-js';
 import './venue-detail.css';
 
 export default function VenueDetailPage() {
@@ -38,8 +37,8 @@ export default function VenueDetailPage() {
 
       if (error) throw error;
       setVenue(data);
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'Unknown error');
     } finally {
       setLoading(false);
     }

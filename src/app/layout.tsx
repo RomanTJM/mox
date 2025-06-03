@@ -2,6 +2,7 @@ import './globals.css';
 import type { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
 import LogoutButton from '../components/LogoutButton';
+import Link from 'next/link';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -12,9 +13,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="header-content">
             <div className="flex">
               <div className="flex-shrink-0 flex items-center">
-                <a href="/" className="header-title">
+                <Link href="/" className="header-title">
                   Booking Service
-                </a>
+                </Link>
               </div>
             </div>
             <div className="flex items-center">
